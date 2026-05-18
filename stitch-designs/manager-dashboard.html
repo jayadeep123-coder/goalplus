@@ -1,0 +1,378 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#281800",
+                        "inverse-surface": "#31302e",
+                        "tertiary": "#00442c",
+                        "inverse-primary": "#94d4b7",
+                        "surface-container": "#f0edea",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-fixed-dim": "#77d9a9",
+                        "body-charcoal": "#4A4A46",
+                        "on-secondary-container": "#704b00",
+                        "on-primary-fixed-variant": "#09513b",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-high": "#ebe8e4",
+                        "background": "#fcf9f5",
+                        "primary-fixed": "#aff0d2",
+                        "page-base": "#FAF8F5",
+                        "on-background": "#1c1c1a",
+                        "primary-fixed-dim": "#94d4b7",
+                        "on-primary-container": "#92d2b5",
+                        "primary-container": "#1a5c45",
+                        "danger-terracotta": "#C0392B",
+                        "on-tertiary-container": "#76d8a8",
+                        "on-surface-variant": "#404944",
+                        "on-surface": "#1c1c1a",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-highest": "#e5e2de",
+                        "secondary-fixed": "#ffddaf",
+                        "outline-variant": "#bfc9c2",
+                        "secondary-container": "#fdba49",
+                        "surface-container-low": "#f6f3ef",
+                        "surface-bright": "#fcf9f5",
+                        "surface-tint": "#2a6951",
+                        "on-secondary-fixed-variant": "#614000",
+                        "tertiary-container": "#005e3e",
+                        "surface": "#fcf9f5",
+                        "error": "#ba1a1a",
+                        "surface-white": "#FFFFFF",
+                        "on-primary-fixed": "#002115",
+                        "secondary-fixed-dim": "#fdba49",
+                        "primary": "#004430",
+                        "tertiary-fixed": "#93f6c4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#805600",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcdad6",
+                        "inverse-on-surface": "#f3f0ec",
+                        "outline": "#707973",
+                        "success-sage": "#4CAF82",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "lg": "40px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "xs": "8px",
+                        "xl": "64px",
+                        "base": "4px",
+                        "margin-desktop": "48px",
+                        "sm": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["DM Sans"],
+                        "headline-lg": ["Literata"],
+                        "label-md": ["DM Sans"],
+                        "display-lg": ["Literata"],
+                        "body-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "body-sm": ["DM Sans"],
+                        "headline-md": ["Literata"],
+                        "headline-lg-mobile": ["Literata"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #FAF8F5;
+            color: #1c1c1a;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-surface-white shadow-[0_2px_12px_rgba(26,26,24,0.08)]">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-bold text-primary">GoalPulse</span>
+<div class="hidden md:flex gap-6">
+<a class="text-body-charcoal font-medium hover:text-primary transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-body-charcoal font-medium hover:text-primary transition-colors duration-200" href="#">Goals</a>
+<a class="text-primary font-bold border-b-2 border-primary" href="#">Team</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-body-charcoal hover:text-primary p-2 transition-all">notifications</button>
+<button class="material-symbols-outlined text-body-charcoal hover:text-primary p-2 transition-all">settings</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a senior male manager in his late 40s, looking confidently at the camera with a warm smile. He is set against a clean, softly lit office environment with warm highlights. The aesthetic is professional, minimalist, and editorial, consistent with a high-end corporate digital interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAi5P45Bwsv199uq_xjNZ1yxzbwSn4I-WT14pg-vZRT901VIRaa29P5pARuDFvymT1XFAumOMMC9F56VSk2Pu9HcwdaL98VIFeAMwvWjFvNOQs2KIEjTcRI1iVfsWKvknzyoTytsyQZS95yk3lbH_4OPNR5YcGSRPn2dBoABY2lriZf2eNxAKfYalx7wwtNj8fHQohMl3o2xbc0du3MV2A5Vui7L4Y8hOgsFO_wKxUiLW--SS-aGHLXwH_Xjq5eROw7Pq7D_ANWPIV">
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[220px] z-40 flex flex-col pt-16 bg-page-base border-r border-outline-variant hidden md:flex">
+<div class="flex flex-col flex-grow py-8 overflow-y-auto">
+<div class="px-6 mb-8">
+<h2 class="text-headline-sm font-headline-sm font-black text-primary">GoalPulse</h2>
+<p class="text-label-sm text-body-charcoal opacity-70">Strategic Tracking</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="track_changes">track_changes</span>
+<span class="font-label-md text-label-md">My Goals</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-label-md text-label-md">Check-ins</span>
+</a>
+<a class="flex items-center gap-3 bg-primary-fixed-dim/20 text-primary border-l-4 border-primary px-4 py-3 font-bold translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-md text-label-md">Team Goals</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto px-4 pb-8 space-y-4">
+<button class="w-full bg-secondary-container text-on-secondary-fixed py-2 rounded-lg font-bold text-label-md hover:bg-secondary-fixed transition-colors">
+                    Switch Role
+                </button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-2 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-2 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:pl-[220px] pt-16 min-h-screen">
+<div class="p-margin-mobile md:p-margin-desktop max-w-[1400px] mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Team Performance</h1>
+<p class="text-body-lg text-body-charcoal max-w-2xl">Review quarterly progress and approve strategic targets for your direct reports.</p>
+</div>
+<div class="flex gap-3">
+<div class="flex -space-x-2">
+<img alt="Sarah Chen" class="w-10 h-10 rounded-full border-2 border-surface-white object-cover" data-alt="A portrait of a young professional woman with a bright, engaged expression, representing Sarah Chen. She is in a minimalist, light-filled workspace with forest green accents and warm wooden textures, creating a supportive and modern high-end UI atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk2k_JgIw-JHLgXM4TBeW_yuVHrBpgd3tgn_hz4YQFNS0c8dIlAwJ8GPgzCrTgm4vzRAYbam_8B1JXYYoNvxoHTCs0gLKq8TQb3fxu8rdlxTMgW2AaJThC_kUPP0GCCuWApZ-8telcI2FaIuI4asVtTsKgXB40sMGQj404Dra7vYmDMb0JPFalthY0Czs7TpNSzTGo3XKDr5cXbDRugwqE6m4M1kbCBddV8ESH_S4LzxuZYeiMpXijAPLIlo96OtQjt0bcezXf-Qmi">
+<img alt="Marcus Aurelius" class="w-10 h-10 rounded-full border-2 border-surface-white object-cover" data-alt="A professional portrait of a man in his 30s with a sharp, disciplined appearance, representing Marcus Aurelius. The lighting is sophisticated and directional, with high-contrast shadows and a background that blends neutral cream tones with elegant deep greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUbObbVRjavd3HfavN9d-LQlmcGA3I6r-MoEqXgMNYBVgmeYmyZ-ytpyky2ZsMzJkxblvUOMwmUAuvcfGNtmDA2G8pgt16ebJHrrhQauclwcmXd0sT21ZjHpisk1jFb4oN952zTcWliUy2QK4m-2lm1TwElfZEiRPtWuZE9TOE8CMga0cXe0JD9kg7BhJQQq0jgxrcyzTeyqArLPL2YKQdHmmiEbgWsN9RWy5cMIY4pWNTx5JpCb5AjOLc0EWE1Y0xHCZlkX10vECI">
+<img alt="Arjun Mehta" class="w-10 h-10 rounded-full border-2 border-surface-white object-cover" data-alt="A portrait of a thoughtful South Asian male professional, representing Arjun Mehta. He is set in a premium office environment characterized by soft-focus greenery, warm natural light, and clean architectural lines that evoke a sense of professional clarity and warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChxY4yGWCjokfQw2lKbfaSp_RKQkHkdyzM22IV1X-hJU0Jyv237-SrcE_ccWllirWjS_WtGRpxVd7snEH4XHCWpXMdceMhVwNKR2wKCz9M5D74ZnZTM69AVclLcm3E1ZqHNXqWo-jInoEeFj1fwUBOMlYS8dTG4w6CiZiJ-EMiK2cbOHgPbHjP7PoAKoNawpSx26eiJThlmbaSj9CNY1tcMSkBInWnVSfcW9LzhQUTo3RFB9D4KuUT4q--MSKrCW4fPi7z0mVZSkQ3">
+</div>
+</div>
+</div>
+<!-- Bento Stats Grid (Asymmetric) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
+<div class="md:col-span-8 bg-surface-white rounded-xl p-md shadow-[0_2px_12px_rgba(26,26,24,0.08)] flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider">Overall Team Velocity</span>
+<h3 class="font-headline-md text-headline-md mt-1">87% Targets Met</h3>
+</div>
+<span class="bg-success-sage/10 text-success-sage px-3 py-1 rounded-full text-label-sm font-bold">+12% vs last month</span>
+</div>
+<div class="mt-8 h-24 flex items-end gap-2">
+<div class="flex-grow bg-primary/10 rounded-sm h-12"></div>
+<div class="flex-grow bg-primary/10 rounded-sm h-16"></div>
+<div class="flex-grow bg-primary/10 rounded-sm h-20"></div>
+<div class="flex-grow bg-primary/20 rounded-sm h-14"></div>
+<div class="flex-grow bg-primary rounded-sm h-24"></div>
+<div class="flex-grow bg-primary rounded-sm h-20"></div>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary text-surface-white rounded-xl p-md shadow-[0_2px_12px_rgba(26,26,24,0.12)]">
+<div class="flex flex-col h-full justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h3 class="font-headline-md text-headline-md mt-2">3 Pending Approvals</h3>
+<p class="text-body-sm opacity-80 mt-2">New goal updates from your team require your immediate review to maintain alignment.</p>
+</div>
+<button class="mt-6 bg-surface-white text-primary w-full py-3 rounded-lg font-bold text-label-md hover:bg-page-base transition-colors">Review All</button>
+</div>
+</div>
+</div>
+<!-- Team Overview Table -->
+<div class="bg-surface-white rounded-xl shadow-[0_2px_12px_rgba(26,26,24,0.08)] overflow-hidden">
+<div class="p-md border-b border-surface-container">
+<h3 class="font-headline-md text-headline-md">Employee Overview</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-md py-4 text-label-sm font-label-sm uppercase text-body-charcoal">Employee</th>
+<th class="px-md py-4 text-label-sm font-label-sm uppercase text-body-charcoal">Active Goals</th>
+<th class="px-md py-4 text-label-sm font-label-sm uppercase text-body-charcoal">Status</th>
+<th class="px-md py-4 text-label-sm font-label-sm uppercase text-body-charcoal">Last Check-in</th>
+<th class="px-md py-4 text-label-sm font-label-sm uppercase text-body-charcoal text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Sarah Chen -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<img alt="Sarah Chen" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx01dmVj-kM6rXQyi5rTLXNqDjfaCNwPVJqOG9-RxNAwT7CxMCMhI2bsxV1v5BCXx854KzDgI725raqaHgAarAoFV8cK9t-B6O8q4oNWqD6euOqeFXKdeqRGQrbo8Nrx6dBqRFUWQif_ctB4VKG8ud3fc4kzlUXjfwnjxT0SQdDSkMrYBo9PqObHJysuoq-NtJ4UQkUzJVYcm1MdgzsmmJgtWKee5eV4CGc18M_52g5UKez-lCpe15t84E28VS-A3ctM_9ECigZhCB">
+<div>
+<p class="font-bold text-on-surface">Sarah Chen</p>
+<p class="text-label-sm text-body-charcoal opacity-70">Senior Product Designer</p>
+</div>
+</div>
+</td>
+<td class="px-md py-4 font-label-md text-label-md">12 Goals</td>
+<td class="px-md py-4">
+<span class="bg-success-sage/10 text-success-sage px-3 py-1 rounded-full text-label-sm font-bold">Approved</span>
+</td>
+<td class="px-md py-4 text-body-sm text-body-charcoal">Oct 12, 2023</td>
+<td class="px-md py-4 text-right">
+<button class="text-primary font-bold text-label-md hover:underline">Review</button>
+</td>
+</tr>
+<!-- Marcus Aurelius (Expanded State Placeholder) -->
+<tr class="bg-surface-container-lowest">
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<img alt="Marcus Aurelius" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSo1O-l4uk0NsmYbB7CxjpfxQTRuaT4oTPgIHce-lHxdosTUStNCHi_C8U2bpr6njx0NQf24cM5wnvCRzdMO0BIRR6T8ScbFxFhnj5tdld5TxtiTJ2dT6a3hmg6fw7vmbk9HoS2K9dFYbYDHpN09huGYzQ1w8NZByKfXLXtRoIfbphOeH3NOGFYXSbY2mSC2qelejngPPQexY5NkqMA3G70CfD92nwLGTkyuQGURyCh5SruxUEY1PtGXo8TWFEbA4To22UsGSvxQyH">
+<div>
+<p class="font-bold text-on-surface">Marcus Aurelius</p>
+<p class="text-label-sm text-body-charcoal opacity-70">Operations Lead</p>
+</div>
+</div>
+</td>
+<td class="px-md py-4 font-label-md text-label-md">8 Goals</td>
+<td class="px-md py-4">
+<span class="bg-secondary-container/20 text-secondary px-3 py-1 rounded-full text-label-sm font-bold">Review Required</span>
+</td>
+<td class="px-md py-4 text-body-sm text-body-charcoal">Oct 24, 2023</td>
+<td class="px-md py-4 text-right">
+<button class="bg-primary text-surface-white px-4 py-2 rounded-lg font-bold text-label-md hover:opacity-90 transition-all">Collapse</button>
+</td>
+</tr>
+<!-- Inline Expanded Panel for Marcus -->
+<tr>
+<td class="px-md py-6 bg-surface-container-low border-y border-outline-variant" colspan="5">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="space-y-4">
+<h4 class="font-headline-sm text-headline-sm text-primary">Strategic Goals</h4>
+<div class="bg-surface-white p-4 rounded-lg border border-outline-variant space-y-4">
+<div class="flex flex-col gap-2">
+<label class="text-label-sm font-label-sm text-body-charcoal">Q4 Efficiency Target (%)</label>
+<input class="w-full bg-page-base border border-outline-variant rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" type="number" value="94">
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-sm font-label-sm text-body-charcoal">Operational Cost Reduction (USD)</label>
+<input class="w-full bg-page-base border border-outline-variant rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" type="text" value="$12,000">
+</div>
+</div>
+</div>
+<div class="flex flex-col h-full">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-4">Manager Feedback</h4>
+<textarea class="flex-grow w-full bg-surface-white border border-outline-variant rounded-lg p-4 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all min-h-[120px] mb-4" placeholder="Add your feedback on these targets..."></textarea>
+<div class="flex justify-end gap-3">
+<button class="px-6 py-3 text-body-charcoal font-bold text-label-md hover:bg-surface-container-high rounded-lg transition-all">Cancel</button>
+<button class="flex items-center gap-2 px-8 py-3 bg-primary text-surface-white rounded-lg font-bold text-label-md hover:shadow-lg active:scale-[0.99] transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 700;">check</span>
+                                                    Approve Targets
+                                                </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Arjun Mehta -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<img alt="Arjun Mehta" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgxIL0ZhuAND_HLbj0N4FkEkvpTCW3RM3YJ-3NDNvRRKO-evl4KCzsnLvhDcrg7Pbfgg2UByxWFW5C8bigQ9P1pkKX_32dg9GNc-dZ-shmPsfaVai29pLzRiYpv89xjs0thOVAqVMIhzOmpWhRDBX4zZ98bZzjCJ7kxGjfBPmb2alBT5sHBUhBvKKabPQwJUmQ2nE0JaLvEddkuNHEr1CJXe2mApsttCxTjzMmdNrzVpdSYWEqDsqUbw-CmMy5uBVI8K8EMgQImlZz">
+<div>
+<p class="font-bold text-on-surface">Arjun Mehta</p>
+<p class="text-label-sm text-body-charcoal opacity-70">Engineering Manager</p>
+</div>
+</div>
+</td>
+<td class="px-md py-4 font-label-md text-label-md">15 Goals</td>
+<td class="px-md py-4">
+<span class="bg-success-sage/10 text-success-sage px-3 py-1 rounded-full text-label-sm font-bold">Approved</span>
+</td>
+<td class="px-md py-4 text-body-sm text-body-charcoal">Oct 20, 2023</td>
+<td class="px-md py-4 text-right">
+<button class="text-primary font-bold text-label-md hover:underline">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Slide-in Panel (Mockup for Comments) -->
+<div class="fixed right-0 top-16 h-[calc(100vh-64px)] w-96 bg-surface-white shadow-[-8px_0_24px_rgba(26,26,24,0.1)] border-l border-outline-variant z-30 translate-x-full lg:translate-x-0 hidden lg:block p-lg">
+<div class="flex flex-col h-full">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md text-headline-md">History &amp; Activity</h3>
+<button class="material-symbols-outlined text-body-charcoal">close</button>
+</div>
+<div class="flex-grow space-y-6 overflow-y-auto pr-2">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<img alt="You" class="w-6 h-6 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZsaNojt14IjUUm0akWsChscsYiyO7yXQI8hUrGjMHeJe-ifb1nGDTEpdAx4D4Dr4PdAS2pyp9PbsISz0z4y0Sjf40UWf9SekAtGDLKNyO9DYQK9erjNYT-ZEqW3ru0KJYM9Kx4CREdWD_7WY5zBR_p_OuYeAmmpsPlml6bNQAFJuoqQW7KpLzEg2uJiXa64YI3bT4-U_Pzdxhyr4aqQg2OY3xrohBLdSkTecn2kZ1Id5msvC7Uo5Ytemj3k8pBtepitl2EftGOYsd">
+<span class="text-label-sm font-bold">You approved Arjun's goal</span>
+<span class="text-[10px] text-body-charcoal opacity-50 ml-auto">2h ago</span>
+</div>
+<div class="bg-page-base p-3 rounded-lg text-body-sm italic border-l-2 border-primary">
+                        "Great progress on the infrastructure migration. Let's touch base on the cost metrics next week."
+                    </div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<img alt="Sarah Chen" class="w-6 h-6 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDla9SfRCUZS8gj7m2JB6uGxusXPx435muGDrIqeh7gJ15nTA9lUR0tNKSQFMYtgDAzU5AUUIlPbUOXR1DExN4wuYzAw5JLiSKjjHSQ63veI_VmWITaa5hPEM3PMlKrfE80UHFKVBDm6SByuQCVQs5dpeR6XD3lrwBB8OYZ6JVpXCvcUZNhhU44Qqz_2czYn9EeWE6Zc5FiMiVYqT6SAuG-UNN1fl_1tpGBSRjGsFfDFVenuG-3JWV0fERKnL4uPScUgFuV1PI4FXne">
+<span class="text-label-sm font-bold">Sarah Chen updated Q4 Goals</span>
+<span class="text-[10px] text-body-charcoal opacity-50 ml-auto">5h ago</span>
+</div>
+<p class="text-body-sm pl-8">Increased "User Retention" target from 85% to 90%.</p>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-surface-container">
+<h4 class="text-label-sm font-bold uppercase mb-3">Quick Note to Team</h4>
+<textarea class="w-full bg-page-base border border-outline-variant rounded-lg p-3 text-body-sm focus:ring-1 focus:ring-primary outline-none min-h-[100px]" placeholder="Broadcasting a feedback note..."></textarea>
+<button class="w-full mt-4 bg-primary text-surface-white py-3 rounded-lg font-bold text-label-md hover:bg-tertiary transition-colors">Send Update</button>
+</div>
+</div>
+</div>
+</body></html>

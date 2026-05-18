@@ -1,0 +1,300 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GoalPulse - Create New Goal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=Literata:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .focus-glow:focus-within {
+            box-shadow: 0 4px 0 -2px #004430;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#281800",
+                      "inverse-surface": "#31302e",
+                      "tertiary": "#00442c",
+                      "inverse-primary": "#94d4b7",
+                      "surface-container": "#f0edea",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "tertiary-fixed-dim": "#77d9a9",
+                      "body-charcoal": "#4A4A46",
+                      "on-secondary-container": "#704b00",
+                      "on-primary-fixed-variant": "#09513b",
+                      "surface-variant": "#e5e2de",
+                      "surface-container-high": "#ebe8e4",
+                      "background": "#fcf9f5",
+                      "primary-fixed": "#aff0d2",
+                      "page-base": "#FAF8F5",
+                      "on-background": "#1c1c1a",
+                      "primary-fixed-dim": "#94d4b7",
+                      "on-primary-container": "#92d2b5",
+                      "primary-container": "#1a5c45",
+                      "danger-terracotta": "#C0392B",
+                      "on-tertiary-container": "#76d8a8",
+                      "on-surface-variant": "#404944",
+                      "on-surface": "#1c1c1a",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#002113",
+                      "surface-container-highest": "#e5e2de",
+                      "secondary-fixed": "#ffddaf",
+                      "outline-variant": "#bfc9c2",
+                      "secondary-container": "#fdba49",
+                      "surface-container-low": "#f6f3ef",
+                      "surface-bright": "#fcf9f5",
+                      "surface-tint": "#2a6951",
+                      "on-secondary-fixed-variant": "#614000",
+                      "tertiary-container": "#005e3e",
+                      "surface": "#fcf9f5",
+                      "error": "#ba1a1a",
+                      "surface-white": "#FFFFFF",
+                      "on-primary-fixed": "#002115",
+                      "secondary-fixed-dim": "#fdba49",
+                      "primary": "#004430",
+                      "tertiary-fixed": "#93f6c4",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#805600",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dcdad6",
+                      "inverse-on-surface": "#f3f0ec",
+                      "outline": "#707973",
+                      "success-sage": "#4CAF82",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "lg": "40px",
+                      "gutter": "24px",
+                      "md": "24px",
+                      "xs": "8px",
+                      "xl": "64px",
+                      "base": "4px",
+                      "margin-desktop": "48px",
+                      "sm": "16px"
+              },
+              "fontFamily": {
+                      "label-sm": ["DM Sans"],
+                      "headline-lg": ["Literata"],
+                      "label-md": ["DM Sans"],
+                      "display-lg": ["Literata"],
+                      "body-md": ["DM Sans"],
+                      "body-lg": ["DM Sans"],
+                      "body-sm": ["DM Sans"],
+                      "headline-md": ["Literata"],
+                      "headline-lg-mobile": ["Literata"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-page-base text-on-surface min-h-screen">
+<!-- TopNavBar Implementation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-surface-white shadow-[0_2px_12px_rgba(26,26,24,0.08)]">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-headline-md font-bold text-primary">GoalPulse</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="text-body-charcoal font-medium hover:text-primary transition-colors duration-200 h-full flex items-center px-2" href="#">Dashboard</a>
+<a class="text-primary font-bold border-b-2 border-primary h-full flex items-center px-2" href="#">Goals</a>
+<a class="text-body-charcoal font-medium hover:text-primary transition-colors duration-200 h-full flex items-center px-2" href="#">Team</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-body-charcoal hover:text-primary">notifications</button>
+<button class="material-symbols-outlined text-body-charcoal hover:text-primary">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female executive with a confident expression, set against a soft, cream-colored studio background. The lighting is warm and directional, highlighting the natural textures of her skin and professional attire. The overall aesthetic is clean, sophisticated, and aligns with high-end productivity tool branding, emphasizing a warm-professional tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO3kTp_259b9ad-wYKMPNPrXzTOGrP9CzEYvOV9Quf-gzSqz11CF4QR5lMS_DmVjt10c0aZPZyJNXCdTY5ldvivXzMVXEm4pPfrRiTCOme1yLyqHOQTgwYC-Y61FFmq6ZV4pAFxH0MO8rf8S-eKaejJeA3-0XFOS2m9RL_9qYyZFtHWdXTxTbNmCYJ6XDVZKMax27yj3hx6syHeaAGxytkM1cmxZYCHozEbbtQYnQdkjUGlL6Ht24pFps8vUOHueMwetXYsAy6vEMR">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto">
+<!-- Step Indicator -->
+<div class="mb-12 flex justify-center">
+<div class="flex items-center gap-4 bg-surface-white px-8 py-4 rounded-xl shadow-[0_2px_12px_rgba(26,26,24,0.08)]">
+<div class="flex items-center gap-2 text-primary">
+<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-label-sm">1</span>
+<span class="font-label-md text-label-md">Goal Details</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+<div class="flex items-center gap-2 text-body-charcoal">
+<span class="w-6 h-6 rounded-full bg-surface-container text-body-charcoal flex items-center justify-center text-label-sm">2</span>
+<span class="font-label-md text-label-md">Targets &amp; Weightage</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+<div class="flex items-center gap-2 text-body-charcoal opacity-50">
+<span class="w-6 h-6 rounded-full bg-surface-container text-body-charcoal flex items-center justify-center text-label-sm">3</span>
+<span class="font-label-md text-label-md">Review &amp; Submit</span>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="bg-surface-white rounded-xl shadow-[0_2px_12px_rgba(26,26,24,0.08)] p-md md:p-lg border border-surface-container">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Column: Primary Details -->
+<div class="md:col-span-7 space-y-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Thrust Area</label>
+<div class="relative group">
+<select class="w-full appearance-none bg-surface-white border border-outline-variant rounded-lg px-4 py-3 text-body-md focus:outline-none focus:ring-0 focus:border-primary focus-glow">
+<option disabled="" selected="" value="">Select priority domain...</option>
+<option>Revenue Growth</option>
+<option>Operational Excellence</option>
+<option>Customer Satisfaction</option>
+<option>Talent Development</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Goal Title</label>
+<input class="w-full bg-surface-white border border-outline-variant rounded-lg px-4 py-3 text-body-md focus:outline-none focus:ring-0 focus:border-primary focus-glow placeholder:text-outline-variant" placeholder="e.g. Expand Market Share in APAC Region" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Description</label>
+<textarea class="w-full bg-surface-white border border-outline-variant rounded-lg px-4 py-3 text-body-md focus:outline-none focus:ring-0 focus:border-primary focus-glow placeholder:text-outline-variant resize-none" placeholder="Describe the strategic impact and key outcomes..." rows="4"></textarea>
+</div>
+</div>
+<!-- Right Column: Metrics & Logic -->
+<div class="md:col-span-5 space-y-8 bg-surface-container-low p-6 rounded-lg">
+<div class="space-y-4">
+<label class="font-label-md text-label-md text-on-surface block">Unit of Measure (UoM)</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-primary bg-primary-container text-on-primary-container font-label-md">
+<span class="material-symbols-outlined text-sm">pin</span>
+                                Numeric
+                            </button>
+<button class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-transparent bg-surface-white text-body-charcoal font-label-md hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">percent</span>
+                                %
+                            </button>
+<button class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-transparent bg-surface-white text-body-charcoal font-label-md hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                Timeline
+                            </button>
+<button class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-transparent bg-surface-white text-body-charcoal font-label-md hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">radio_button_checked</span>
+                                Zero
+                            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Target Value</label>
+<div class="relative">
+<input class="w-full bg-surface-white border border-outline-variant rounded-lg px-4 py-3 text-body-md font-bold text-primary focus:outline-none focus:ring-0 focus:border-primary focus-glow" type="number" value="1000000">
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-label-sm text-outline">USD</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="font-label-md text-label-md text-on-surface">Weightage</label>
+<span class="text-label-sm text-secondary font-bold">Recommended: 15%</span>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-white border border-outline-variant rounded-lg px-4 py-3 text-body-md font-bold text-primary focus:outline-none focus:ring-0 focus:border-primary focus-glow" type="number" value="15">
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-label-sm text-outline">%</span>
+</div>
+<p class="text-[11px] text-body-charcoal opacity-70 italic">Weightage reflects the priority of this goal relative to others.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Live Validation Footer -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-white border-t border-surface-container-high px-margin-mobile md:px-margin-desktop py-4 z-50">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Progress Status -->
+<div class="w-full md:w-1/3 space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-label-md text-label-md text-on-surface">Total Weightage</span>
+<span class="font-label-md text-label-md text-secondary">85 / 100%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%] rounded-full"></div>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] text-body-charcoal">
+<span class="material-symbols-outlined text-[14px] text-secondary">info</span>
+<span>Min 10% · Max per sheet: 8 goals</span>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-4 w-full md:w-auto">
+<button class="px-6 py-3 text-body-charcoal font-bold font-label-md hover:bg-surface-container rounded-lg transition-colors">
+                    Save Draft
+                </button>
+<button class="flex-1 md:flex-none px-12 py-3 bg-outline-variant text-white font-bold font-label-md rounded-lg cursor-not-allowed flex items-center justify-center gap-2 opacity-60" disabled="">
+                    Submit Goal
+                    <span class="material-symbols-outlined text-sm">lock</span>
+</button>
+</div>
+</div>
+</footer>
+<!-- SideNavBar (Hidden on Mobile) as per Hierarchy Protocol -->
+<aside class="hidden xl:flex fixed left-0 top-0 h-screen w-[220px] z-40 flex-col pt-16 bg-page-base border-r border-outline-variant">
+<div class="px-4 py-8">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-primary-fixed-dim/20 text-primary border-l-4 border-primary px-4 py-3 font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">track_changes</span>
+<span class="font-label-md text-label-md">My Goals</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-md text-label-md">Check-ins</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Team Goals</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</div>
+</div>
+<div class="mt-auto px-4 pb-8 border-t border-surface-variant pt-4">
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-body-charcoal px-4 py-3 hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</a>
+</div>
+</aside>
+</body></html>
