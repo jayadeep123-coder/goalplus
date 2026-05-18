@@ -15,16 +15,19 @@ export default function LoginPage() {
     setError(null);
     setLoading(true);
 
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Request timed out. Please check your internet or Supabase config.")), 10000)
+    );
+
     try {
-      // alert("Step 1: Attempting to sign in with Supabase...");
-      const { data: { user }, error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      const { data, error: signInError } = await Promise.race([
+        supabase.auth.signInWithPassword({ email, password }),
+        timeout
+      ]);
 
       if (signInError) throw signInError;
-      
-      // alert("Step 2: Sign in successful! Fetching profile for user ID: " + user.id);
+      const user = data?.user;
+      if (!user) throw new Error("No user returned. Please try again.");
 
       const { data: profile, error: profileError } = await supabase
         .from("profiles")
@@ -33,13 +36,12 @@ export default function LoginPage() {
         .single();
 
       if (profileError) {
-        console.error("Profile fetch error:", profileError);
-        // It's fine if the profile is missing for the demo, just force route them!
+        console.error("Profile fetch error:", profileError.message);
       }
-      // Force a hard browser redirect to bypass ANY Next.js routing bugs!
+
       if (profile?.role === 'admin') {
         window.location.href = "/admin-hr-panel";
-      } else if (profile?.role === 'manager' || email.toLowerCase() === 'manager@goalpulse.com') {
+      } else if (profile?.role === 'manager') {
         window.location.href = "/manager-dashboard";
       } else {
         window.location.href = "/dashboard";
