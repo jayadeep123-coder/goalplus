@@ -19,33 +19,38 @@ export default function ManagerDashboardPage() {
   const [actionLoading, setActionLoading] = useState({});
 
   useEffect(() => {
-    // If the auth context is still figuring out if we are logged in, just wait.
-    // But if we are definitely NOT logged in, redirect to login!
+    // Give auth context more time to resolve on production
     if (user === null) {
        const timer = setTimeout(() => {
            if (!user) router.push('/login');
-       }, 1500);
+       }, 3000);
        return () => clearTimeout(timer);
     }
     
     if (user) {
       const fetchTeamGoals = async () => {
-        // Fetch goals with employee profiles
+        // Fetch goals + checkins (no nested profile FK to avoid RLS issues)
         const { data: goalsData, error } = await supabase
           .from('goals')
-          .select(`
-            *,
-            profiles (full_name),
-            checkins (*)
-          `);
+          .select('*, checkins(*)');
+          
+        // Fetch all profiles separately
+        const { data: profilesData } = await supabase
+          .from('profiles')
+          .select('id, full_name, department');
           
         if (error) {
           setDbError(error.message);
         }
           
         if (goalsData) {
-          // Filter out manager's own goals to see only team goals
-          const filtered = goalsData.filter(g => g.employee_id !== user.id);
+          // Attach profile name manually
+          const withProfiles = goalsData.map(g => ({
+            ...g,
+            profiles: profilesData?.find(p => p.id === g.employee_id) || null
+          }));
+          // Filter out manager's own goals
+          const filtered = withProfiles.filter(g => g.employee_id !== user.id);
           setTeamGoals(filtered);
         }
         setLoading(false);
