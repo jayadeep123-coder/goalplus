@@ -7,14 +7,20 @@ import { supabase } from "@/lib/supabaseClient";
 import { useAuth } from "@/context/AuthContext";
 
 export default function DashboardPage() {
-  const { user, profile } = useAuth();
+  const { user, profile, loading: authLoading } = useAuth();
   const [goals, setGoals] = useState([]);
   const [activeCycle, setActiveCycle] = useState(null);
   const [stats, setStats] = useState({ submitted: 0, approved: 0, pending: 0, overall: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user) return;
+    // Wait for auth to finish loading
+    if (authLoading) return;
+    // Not logged in → go to login
+    if (!user) {
+      window.location.href = '/login';
+      return;
+    }
     
     const fetchDashboardData = async () => {
       // 1. Get active cycle
@@ -81,9 +87,9 @@ export default function DashboardPage() {
     };
     
     fetchDashboardData();
-  }, [user]);
+  }, [user, authLoading]);
 
-  if (loading) {
+  if (authLoading || loading) {
     return <div className="flex justify-center items-center h-64 text-primary font-semibold">Loading Dashboard...</div>;
   }
 

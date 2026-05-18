@@ -7,7 +7,7 @@ import Link from "next/link";
 import CountUp from "react-countup";
 
 export default function ManagerDashboardPage() {
-  const { user, profile } = useAuth();
+  const { user, profile, loading: authLoading } = useAuth();
   const [teamGoals, setTeamGoals] = useState([]);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -19,16 +19,15 @@ export default function ManagerDashboardPage() {
   const [actionLoading, setActionLoading] = useState({});
 
   useEffect(() => {
-    // Give auth context more time to resolve on production
-    if (user === null) {
-       const timer = setTimeout(() => {
-           if (!user) router.push('/login');
-       }, 3000);
-       return () => clearTimeout(timer);
+    // Wait for auth context to resolve
+    if (authLoading) return;
+    // Not logged in → redirect
+    if (!user) {
+      window.location.href = '/login';
+      return;
     }
     
-    if (user) {
-      const fetchTeamGoals = async () => {
+    const fetchTeamGoals = async () => {
         // Fetch goals + checkins (no nested profile FK to avoid RLS issues)
         const { data: goalsData, error } = await supabase
           .from('goals')
@@ -57,8 +56,7 @@ export default function ManagerDashboardPage() {
       };
       
       fetchTeamGoals();
-    }
-  }, [user, router]);
+  }, [user, authLoading]);
 
   const handleApprove = async (goalId) => {
     setActionLoading(prev => ({ ...prev, [goalId]: 'approving' }));

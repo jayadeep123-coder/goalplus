@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function QuarterlyCheckinPage() {
-  const { user, profile } = useAuth();
+  const { user, profile, loading: authLoading } = useAuth();
   const router = useRouter();
   
   const [activeCycle, setActiveCycle] = useState(null);
@@ -18,7 +18,9 @@ export default function QuarterlyCheckinPage() {
   const [currentPeriod, setCurrentPeriod] = useState("Q3");
 
   useEffect(() => {
-    if (!user) return;
+    if (authLoading) return;
+    if (!user) { window.location.href = '/login'; return; }
+
     
     const fetchData = async () => {
       // 1. Get active cycle
